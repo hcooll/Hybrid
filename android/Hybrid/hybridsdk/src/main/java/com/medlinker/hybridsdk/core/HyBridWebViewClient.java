@@ -1,6 +1,8 @@
 package com.medlinker.hybridsdk.core;
 
 import android.net.Uri;
+import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -12,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Logger;
 
 /**
  * Created by vane on 16/6/2.
@@ -36,6 +39,7 @@ public class HyBridWebViewClient extends WebViewClient {
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
         //TODO 需要重新讨论协议标准,建议url路径和本地的压缩包目录结构相同
         String tempUrl = url.replace("/webapp", "");
+        Log.e("", "===>>> url:" + url);
         //-----------------------------------------
         Uri uri = Uri.parse(tempUrl);
         File file = new File(FileUtil.getRootDir(view.getContext()).getAbsolutePath() + "/" + HybridConfig.FILE_HYBRID_DATA_PATH + "/" + uri.getPath());

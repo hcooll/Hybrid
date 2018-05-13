@@ -21,6 +21,7 @@ import java.util.HashMap;
 public class HybridConfig {
 
     public static final String SCHEME = "hybrid";
+//    public static final String SCHEME = "medmedlinkerhybrid";
     public static final String ACTIONPRE = "medlinker.hybrid.";//配置是intent-filter中的action的前缀
 //    public static final String VERSION_HOST = "http://yexiaochai.github.io/Hybrid/webapp/hybrid_ver.json";
     public static final String VERSION_HOST = "http://h5.qa.medlinker.com";
