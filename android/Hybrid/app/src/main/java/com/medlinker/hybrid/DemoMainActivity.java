@@ -17,6 +17,24 @@ public class DemoMainActivity extends HybridWebViewActivity {
         Log.e("vane", "DemoMainActivity onCreate");
 //        HybridAjaxService.checkVersion(context);
         HybridAjaxService.checkVersion(this);
+
+
+        TestNativeActivity.flag = true;
+
+
+        Log.e("DemoMainActivity","===>>> onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("DemoMainActivity","===>>> onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("DemoMainActivity","===>>> onResume");
     }
 
     @Override

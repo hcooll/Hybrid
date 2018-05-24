@@ -4,16 +4,23 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TestNativeActivity extends AppCompatActivity {
+
+
+    public static boolean flag = false;
+
+
     /**
      * 屏幕横竖屏切换，和生命周期管理
      */
@@ -37,6 +44,17 @@ public class TestNativeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 text_screen.setText("重新来！");
+
+                startActivity(new Intent(TestNativeActivity.this,DemoMainActivity.class));
+
+                Log.d("","===>>> flag:"+flag);
+            }
+        });
+
+        findViewById(R.id.change_screen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScreen(v);
             }
         });
     }
@@ -47,8 +65,22 @@ public class TestNativeActivity extends AppCompatActivity {
         text_screen.append("\n onNewIntent");
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        text_screen.append("\n onSaveInstanceState");
+        Log.e(TAG,"===>>> onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        text_screen.append("\n onRestoreInstanceState");
+        Log.e(TAG,"===>>> onRestoreInstanceState");
+    }
+
     //改变横竖屏切换的方法
-    public void changeScreen(View view) {
+    private void changeScreen(View view) {
         /**
          * int ORIENTATION_PORTRAIT = 1;  竖屏
          * int ORIENTATION_LANDSCAPE = 2; 横屏
@@ -100,12 +132,16 @@ public class TestNativeActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         text_screen.append("\n onPause");
+
+        Log.e(TAG,"===>>> onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         text_screen.append("\n onStop");
+
+        Log.e(TAG,"===>>> onStop");
     }
 
     @Override

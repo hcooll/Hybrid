@@ -20,7 +20,7 @@
             android:name=".TestNativeActivity"
             android:label="@string/title_activity_demo1"
             android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="medlinker.hybrid.index2" />
