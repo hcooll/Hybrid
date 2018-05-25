@@ -43,7 +43,7 @@ public class TestNativeActivity extends AppCompatActivity {
         text_screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text_screen.setText("重新来！");
+               // text_screen.setText("重新来！");
 
                 startActivity(new Intent(TestNativeActivity.this,DemoMainActivity.class));
 
