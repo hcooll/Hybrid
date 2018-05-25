@@ -32,19 +32,19 @@ public class NativeLinearLayout extends LinearLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.e(TAG, "===>>> onMeasure start  mode:" + MeasureSpec.getMode(widthMeasureSpec) + ", size: " + MeasureSpec.getSize(widthMeasureSpec));
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-
-        Log.e(TAG, "===>>> onMeasure  mode:" + MeasureSpec.getMode(widthMeasureSpec) + ", size: " + MeasureSpec.getSize(widthMeasureSpec));
+        Log.e(TAG, "===>>> onMeasure end  mode:" + MeasureSpec.getMode(widthMeasureSpec) + ", size: " + MeasureSpec.getSize(widthMeasureSpec));
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        Log.e(TAG, "===>>> onLayout start");
         super.onLayout(changed, left, top, right, bottom);
 
-        Log.e(TAG, "===>>> onLayout");
 
         invalidate();
+        Log.e(TAG, "===>>> onLayout end");
     }
 
     @Override

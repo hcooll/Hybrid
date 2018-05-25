@@ -57,6 +57,7 @@ public class TestNativeActivity extends AppCompatActivity {
                 changeScreen(v);
             }
         });
+        Log.e(TAG,"===>>> onCreate");
     }
 
     @Override
@@ -77,6 +78,15 @@ public class TestNativeActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         text_screen.append("\n onRestoreInstanceState");
         Log.e(TAG,"===>>> onRestoreInstanceState");
+
+        getLastCustomNonConfigurationInstance();
+    }
+
+    @Override
+    public Object onRetainCustomNonConfigurationInstance() {
+        text_screen.append("\n onRetainCustomNonConfigurationInstance");
+        Log.e(TAG,"===>>> onRetainCustomNonConfigurationInstance");
+        return super.onRetainCustomNonConfigurationInstance();
     }
 
     //改变横竖屏切换的方法
@@ -114,18 +124,21 @@ public class TestNativeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         text_screen.append("\n onStart");
+        Log.e(TAG,"===>>> onStart");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         text_screen.append("\n onRestart");
+        Log.e(TAG,"===>>> onRestart");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         text_screen.append("\n onResume");
+        Log.e(TAG,"===>>> onResume");
     }
 
     @Override
@@ -148,6 +161,7 @@ public class TestNativeActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         text_screen.append("\n onDestroy");
+        Log.e(TAG,"===>>> onDestroy");
     }
 
 
