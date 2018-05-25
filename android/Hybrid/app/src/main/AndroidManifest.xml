@@ -11,23 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:theme">
-        <activity android:name=".DemoMainActivity"
-            android:excludeFromRecents="false">
-
-        </activity>
-
+        <activity
+            android:name=".DemoMainActivity"
+            android:excludeFromRecents="false" />
         <activity
             android:name=".TestNativeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_demo1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="medlinker.hybrid.index2" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,6 +40,7 @@
                 <data
                     android:host="forward"
                     android:scheme="hybrid" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -53,9 +51,22 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
+        </activity>
+        <activity android:name="com.medlinker.launchmode.LaunchActivity">
 
         </activity>
+        <activity
+            android:name="com.medlinker.launchmode.StandardActivity"
+            android:launchMode="standard" />
+        <activity
+            android:name="com.medlinker.launchmode.SingleTopActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.medlinker.launchmode.SingleTaskActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.medlinker.launchmode.SingleInstanceActivity"
+            android:launchMode="singleInstance" />
     </application>
 
 </manifest>
